@@ -175,9 +175,7 @@ button{
     color: #3F72AF;
     font-weight: 700;
 }
-.wrongAnswereIcon{
-    margin-left: 90%;
-}
-.correctAnswereIcon{
-    margin-left: 90%;
+.wrongAnswereIcon, .correctAnswereIcon{
+   position: absolute;
+   right: 1px;
 }
