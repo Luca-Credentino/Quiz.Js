@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- fontAwesome -->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"data-search-pseudo-elements></script>
+    <!-- fontAwesome -->
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js"data-search-pseudo-elements></script>
+    <!-- bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- css -->
+    <link rel="stylesheet" href="style.css">
+    <title>Quiz</title>
+</head>
+<body>
+    <div class="quiz-container">
+    <div class="top-container">
+        <h1>Quiz App by: <a href="https://github.com/Luca-Credentino">Luca Credentino</a></h1>
+            <div class="time-container">
+                <h4>Time left</h4>
+                <h4 class="counter-time">15</h4>
+            </div>
+    </div>
+    <progress class="progress-bar" value="0" max="15" id="progressBar"></progress>
+    <div class="question-contaier">
+        <h2 class="domanda"></h2>
+        <div class="">
+        <ol class="ol">
+        </ol>
+    </div>
+    </div>
+    <div class="divisore"></div>
+    <div class="nextQuestion-container">
+        <h5>
+           <span class="score" style="font-weight: 600;">1</span> of <span class="counter" style="font-weight: 600;">5</span> question
+        </h5>
+        <button class="nextQuestion">Next Que</button>
+    </div>
+    </div>
+    <div class="modal-bg">
+        <div class="container">
+            <div class="end-quiz-container">
+                <div class="icon-trophy">
+                    <i style="color: #3F72AF;" class="fas fa-trophy fa-6x"></i>
+                </div>
+                <h1>You've <span style="font-weight: 600;">Completed</span> the quiz!</h1>
+                <h2>and, you got <span class="userPoints">tot</span> points</h2>
+                <div class="btns-div">
+                    <button class="replayBtn">Replay Quiz</button>
+                    <button class="quitBtn">Quit Quiz</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
