@@ -70,11 +70,11 @@ showQuestionAndAnswere(0) //INDEX "0" PERCHE DOVRA SEMPRE APPARIRE LA PRIMA DOMA
 counterTime(15)
 
 nextQuestionBtn.addEventListener("click", ()=>{
-    if(countIndex >= 5){
-        const modalPoints = document.querySelector(".modal-bg")
+    if(countIndex >= 4){
+        const modalPoints = document.querySelector(".modal-bg");
         modalPoints.classList.add("active");
         //points
-        userPointsTxt.innerHTML = userPoints
+        userPointsTxt.innerHTML = userPoints;
     }else{
         counterDomande++;
         countIndex++;
