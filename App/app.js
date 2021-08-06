@@ -70,21 +70,21 @@ let dowloadTimer;
 showQuestionAndAnswere(0) //INDEX "0" PERCHE DOVRA SEMPRE APPARIRE LA PRIMA DOMANDA
 counterTime(15)
 
+
 nextQuestionBtn.addEventListener("click", ()=>{
     if(countIndex >= 4){
         const modalPoints = document.querySelector(".modal-bg");
         modalPoints.classList.add("active");
-        //points
-        userPointsTxt.innerHTML = userPoints;
+        userPointsTxt.innerHTML = userPoints; //points
     }else{
         counterDomande++;
         countIndex++;
-        clearInterval(dowloadTimer);
-        counterTime(15);
+        clearInterval(dowloadTimer); //reset timer
+        counterTime(15); //start timer
         showQuestionAndAnswere(countIndex);
         scoreText.innerHTML = counterDomande;
     }
-})//DOPO IL CLICK VERRÀ RESETTATA LA FUNZIONE DI TIMER E LE RISPOSTE E DOMANDE AGGIORNATE OGNI CLICK
+})
 
 function showQuestionAndAnswere(index){
     nextQuestionBtn.classList.remove("active");
@@ -98,7 +98,7 @@ function showQuestionAndAnswere(index){
     risposte.forEach((elements)=>{
         elements.setAttribute("onclick", "answerOnClick(this)")
     })
-}//DISPLAY QUESTION 
+}//display question and options 
 
 function counterTime (seconds) {
     let timeleft = seconds;
@@ -118,32 +118,32 @@ function counterTime (seconds) {
         }
         timeleft -= 1;
     }, 1500)
-}//TIMER
+}//timer
 
 //OnClick le diverse opzioni di risposta
 function answerOnClick(answer){
     let userAnswer = answer.textContent
     let correctAnswere = domandeRisposte[countIndex].answer;
+
     if(userAnswer == correctAnswere){
+        userPoints++; //+1 point
+
         nextQuestionBtn.classList.add("active");
-         const correctAnswereIcon =  document.createElement("i")
-         correctAnswereIcon.className = "far fa-check-circle correctAnswereIcon"
-         correctAnswereIcon.style.color = "green"
-         answer.style.color = "green"
+        const correctAnswereIcon =  document.createElement("i");
+        correctAnswereIcon.className = "far fa-check-circle correctAnswereIcon";
+        correctAnswereIcon.style.color = "green";
+        answer.style.color = "green";
         answer.appendChild(correctAnswereIcon);
-        userPoints++
         answer.forEach((elements)=>{
-            elements.setAttribute("onclick", "null")
-        }) //reset della funzione answerOnClick()
+            elements.setAttribute("onclick", "null");
+        }) 
     }else{
         const wrongAnswereIcon = document.createElement("i");
         wrongAnswereIcon.className = "far fa-times-circle wrongAnswereIcon";
         wrongAnswereIcon.style.color = "red";
         answer.style.color = "red"
         answer.appendChild(wrongAnswereIcon);
-        answer.forEach((elements)=>{
-            elements.setAttribute("onclick", "null")
-        })
+        nextQuestionBtn.classList.add("active");
     }
 }
 

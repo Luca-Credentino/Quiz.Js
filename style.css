@@ -11,24 +11,30 @@ body{
     text-align: center;
     min-height: 100vh;
 }
-button{
-    border: 2px solid #3F72AF;
+
+
+.startQuizBTN{
+    border: none;
     color: #3F72AF;
-    height: 50px;
-    width: 8rem;
+    height: 72px;
+    width: 12rem;
     border-radius: 5px;
     font-weight: 700;
+    font-size: 18px;
+}
+.ExitModalBtn, .StartModalBtn{
+    height: 40px;
+    width: 6rem;
+    font-weight: 500;
+    border-radius: 5px;
 }
 .ExitModalBtn{
     border: 2px solid #3F72AF;
-    height: 40px;
-    width: 6rem;
+    color: #3F72AF;
 }
 .StartModalBtn{
     background-color: #3F72AF;
     color: white;
-    height: 40px;
-    width: 6rem;
     border: none;
 }
 #exampleModalLongTitle{
