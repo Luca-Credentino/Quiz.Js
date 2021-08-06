@@ -66,6 +66,7 @@ let counterDomande = 1;
 let userPoints = 0;
 let dowloadTimer;
 
+
 showQuestionAndAnswere(0) //INDEX "0" PERCHE DOVRA SEMPRE APPARIRE LA PRIMA DOMANDA
 counterTime(15)
 
@@ -86,6 +87,7 @@ nextQuestionBtn.addEventListener("click", ()=>{
 })//DOPO IL CLICK VERRÀ RESETTATA LA FUNZIONE DI TIMER E LE RISPOSTE E DOMANDE AGGIORNATE OGNI CLICK
 
 function showQuestionAndAnswere(index){
+    nextQuestionBtn.classList.remove("active");
     domandaText.innerHTML = `${domandeRisposte[index].domanda}`;
     listText.innerHTML = `
     <h3 data-risposta="1" class="risposte">${domandeRisposte[index].options[0]}</h3><span></span>
@@ -123,20 +125,25 @@ function answerOnClick(answer){
     let userAnswer = answer.textContent
     let correctAnswere = domandeRisposte[countIndex].answer;
     if(userAnswer == correctAnswere){
+        nextQuestionBtn.classList.add("active");
          const correctAnswereIcon =  document.createElement("i")
          correctAnswereIcon.className = "far fa-check-circle correctAnswereIcon"
          correctAnswereIcon.style.color = "green"
          answer.style.color = "green"
         answer.appendChild(correctAnswereIcon);
         userPoints++
-        answer.setAttribute("onclick", "null"); //reset della funzione answerOnClick()
+        answer.forEach((elements)=>{
+            elements.setAttribute("onclick", "null")
+        }) //reset della funzione answerOnClick()
     }else{
         const wrongAnswereIcon = document.createElement("i");
         wrongAnswereIcon.className = "far fa-times-circle wrongAnswereIcon";
         wrongAnswereIcon.style.color = "red";
         answer.style.color = "red"
         answer.appendChild(wrongAnswereIcon);
-        answer.setAttribute("onclick", "null");
+        answer.forEach((elements)=>{
+            elements.setAttribute("onclick", "null")
+        })
     }
 }
 
